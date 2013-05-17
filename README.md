@@ -1,29 +1,19 @@
 # PrettyBacon
 
-TODO: Write a gem description
+Prettifies Bacon output.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'PrettyBacon'
+    gem 'PrettyBacon', :git => 'https://github.com/irrationalfab/PrettyBacon.git'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install PrettyBacon
-
 ## Usage
 
-TODO: Write usage instructions here
+Add the following line to your spec helper:
 
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+    require 'pretty_bacon'

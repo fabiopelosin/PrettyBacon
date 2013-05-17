@@ -6,11 +6,11 @@ require 'pretty_bacon/version'
 Gem::Specification.new do |spec|
   spec.name          = "PrettyBacon"
   spec.version       = PrettyBacon::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.authors       = ["Fabio A. Pelosin"]
+  spec.email         = ["fabiopelosin@gmail.com"]
+  spec.description   = %q{Prettifies Bacon output.}
+  spec.summary       = %q{Prettifies Bacon output.}
+  spec.homepage      = "https://github.com/irrationalfab/PrettyBacon"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.s.add_runtime_dependency   "PrettyBacon", "~> 0.0.1"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 end
