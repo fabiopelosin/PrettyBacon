@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module Bacon
 
   # Overrides the SpecDoxzRtput to provide colored output by default
