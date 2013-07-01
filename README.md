@@ -6,7 +6,7 @@ Prettifies Bacon output.
 
 Add this line to your application's Gemfile:
 
-    gem 'PrettyBacon', :git => 'https://github.com/irrationalfab/PrettyBacon.git'
+    gem 'prettybacon', :git => 'https://github.com/irrationalfab/PrettyBacon.git'
 
 And then execute:
 
