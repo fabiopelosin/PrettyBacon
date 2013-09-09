@@ -43,7 +43,18 @@ module Bacon
           else
             :red
           end
-        puts PrettyBacon.color(:green, "#{spaces}✓ ") + "#{description} " + PrettyBacon.color(time_color, "(#{elapsed_time} ms)")
+
+        if elapsed_time <= 1
+          elapsed_time_string = ''
+        elsif elapsed_time >= 1000
+          elapsed_time_string = "(#{elapsed_time/1000} s)"
+        else
+          elapsed_time_string = "(#{elapsed_time} ms)"
+        end
+
+        elapsed_time_string = PrettyBacon.color(time_color, " #{elapsed_time_string}") unless elapsed_time_string == ''
+
+        puts PrettyBacon.color(:green, "#{spaces}✓ ") + "#{description}" + elapsed_time_string
       end
     end
 
