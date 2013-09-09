@@ -47,7 +47,7 @@ module Bacon
         if elapsed_time <= 1
           elapsed_time_string = ''
         elsif elapsed_time >= 1000
-          elapsed_time_string = "(#{elapsed_time/1000} s)"
+          elapsed_time_string = "(#{(elapsed_time/1000.0).round(1)} s)"
         else
           elapsed_time_string = "(#{elapsed_time} ms)"
         end
