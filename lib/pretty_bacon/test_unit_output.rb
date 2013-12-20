@@ -60,7 +60,7 @@ module Bacon
       end
       result = "%d specifications (%d requirements), %d failures, %d errors" %
         Counter.values_at(:specifications, :requirements, :failed, :errors)
-      if Counter[:failed].zero?
+      if Counter[:failed].zero? && Counter[:errors].zero?
         puts PrettyBacon.color(:green, result)
       else
         puts PrettyBacon.color(:red, result)

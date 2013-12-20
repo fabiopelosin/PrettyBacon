@@ -64,8 +64,13 @@ module Bacon
       unless Counter[:disabled].zero?
         puts PrettyBacon.color(:yellow, "#{Counter[:disabled]} disabled specifications\n")
       end
-      puts "%d specifications (%d requirements), %d failures, %d errors" %
+      result = "%d specifications (%d requirements), %d failures, %d errors" %
         Counter.values_at(:specifications, :requirements, :failed, :errors)
+      if Counter[:failed].zero? && Counter[:errors].zero?
+        puts PrettyBacon.color(:green, result)
+      else
+        puts PrettyBacon.color(:red, result)
+      end
     end
 
     #:nodoc:
