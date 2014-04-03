@@ -11,6 +11,7 @@ module Bacon
       print indicator
       @indicators||=''
       @indicators << indicator
+      @last_spec_name = name
       yield
     end
 
@@ -24,15 +25,18 @@ module Bacon
     # After the first failure or error all the other requirements are skipped.
     #
     def handle_requirement(description, disabled = false)
-      if @first_error
+      if @skip_the_rest
         indicator = PrettyBacon.color(nil, '_')
       else
         error = yield
         if !error.empty?
-          @first_error = true
-          m = error[0..0]
-          c = (m == "E" ? :red : :yellow)
-          indicator = PrettyBacon.color(c, m)
+          @skip_the_rest = true
+          message = error[0..0]
+          color = (message == "E" ? :red : :yellow)
+          indicator = PrettyBacon.color(color, message)
+          spec_message = @last_spec_name
+          desc_message = PrettyBacon.color(color, description)
+          @failing_rquirement = "#{spec_message}: #{desc_message}"
         elsif disabled
           indicator =  "D"
         else
@@ -45,6 +49,9 @@ module Bacon
     end
 
     def handle_summary
+      puts "\n\n"
+      puts @failing_rquirement
+
       first_error = ''
       error_count = 0
       ErrorLog.lines.each do |s|
