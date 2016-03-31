@@ -32,7 +32,7 @@ module Bacon
   module FilterBacktraces
     def handle_summary
       ErrorLog.replace(ErrorLog.split("\n").reject do |line|
-        line =~ %r{(gems/mocha|ruby_noexec_wrapper|pretty_bacon)}
+        line =~ %r{(gems/(mocha|bundler)|bin/bundle|ruby_noexec_wrapper|pretty_bacon)}
       end.join("\n").lstrip << "\n\n")
       super
     end
